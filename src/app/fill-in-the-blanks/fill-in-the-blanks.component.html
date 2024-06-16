@@ -1,0 +1,36 @@
+<div class="lyrics-container" *ngIf="this.selectedLyrics">
+  <h2>{{ this.selectedLyrics.title }} by {{ this.selectedLyrics.artist }}</h2>
+  <div class="fab-container">
+    <button mat-button color="primary" (click)="previous()" *ngIf="!isFirstLine">
+previous line
+    </button>
+    <button mat-button color="accent" (click)="next()" *ngIf="!isLastLine">
+next line
+    </button>
+  </div>
+
+  <p *ngIf="this.selectedLyrics.lines">
+    <span *ngFor="let word of this.selectedLyrics.lines[lineIndex].split(' '); let i = index">
+      <ng-container *ngIf="isBlank(i); else showWord">
+        <input id="{{i}}"
+        (change)="checkAnswers()"
+          [(ngModel)]="currentAnswer[i]"
+          placeholder="___"
+        />
+      </ng-container>
+      <ng-template #showWord>{{ word }}</ng-template>
+    </span>
+  </p>
+
+  <!-- <button (click)="checkAnswers()" ()>Check Answers</button> -->
+  <span *ngIf="this.fillBlanks">
+    <div *ngFor="let blank of this.fillBlanks">
+      <p>
+        {{ blank.position + 1 }}. Your answer: {{ this.getAnswerByPosition(blank.position)?.answer }} -
+        <span [class.correct]="blank.correct" [class.incorrect]="!blank.correct">
+          {{ blank.correct ? 'Correct' : 'Incorrect' }}
+        </span>
+      </p>
+    </div>
+  </span>
+</div>

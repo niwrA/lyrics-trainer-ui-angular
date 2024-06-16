@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'therapy-assistant-ui-angular'`, () => {
+  it(`should have as title 'lyrics-trainer-ui-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('therapy-assistant-ui-angular');
+    expect(app.title).toEqual('lyrics-trainer-ui-angular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, therapy-assistant-ui-angular');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, lyrics-trainer-ui-angular');
   });
 });

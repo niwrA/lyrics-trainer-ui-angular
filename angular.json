@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "therapy-assistant-ui-angular": {
+    "lyrics-trainer-ui-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/therapy-assistant-ui-angular",
+            "outputPath": "dist/lyrics-trainer-ui-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "therapy-assistant-ui-angular:build:production"
+              "buildTarget": "lyrics-trainer-ui-angular:build:production"
             },
             "development": {
-              "buildTarget": "therapy-assistant-ui-angular:build:development"
+              "buildTarget": "lyrics-trainer-ui-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "therapy-assistant-ui-angular:build"
+            "buildTarget": "lyrics-trainer-ui-angular:build"
           }
         },
         "test": {
@@ -104,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

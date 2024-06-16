@@ -1,0 +1,24 @@
+<div class="quiz-container" *ngIf="!showResult">
+  <h2>{{ lyricsData.songTitle }} by {{ lyricsData.artist }}</h2>
+  <span *ngFor="let word of lyricsData.lyrics.split(' '); let i = index">
+    <ng-container *ngIf="isBlank(i); else showWord"> ___
+    </ng-container>
+    <ng-template #showWord> {{ word }}</ng-template>
+  </span>
+  <p>{{ lyricsData.quizQuestions[currentQuestionIndex].question }}</p>
+  <div *ngFor="let option of lyricsData.quizQuestions[currentQuestionIndex].options">
+    <input
+      type="radio"
+      name="option"
+      [value]="option"
+      [(ngModel)]="selectedOption"
+    />
+    {{ option }}
+  </div>
+  <button (click)="submitAnswer()">Submit</button>
+</div>
+
+<div class="result-container" *ngIf="showResult">
+  <h2>Quiz Completed!</h2>
+  <p>Your score: {{ score }} / {{ lyricsData.quizQuestions.length }}</p>
+</div>
